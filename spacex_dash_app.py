@@ -80,7 +80,7 @@ def get_scatter_chart(entered_site,slider_range):
     low, high = slider_range
     mask = (spacex_df['Payload Mass (kg)'] > low) & (spacex_df['Payload Mass (kg)'] < high)
     if entered_site == 'ALL':
-        fig = px.scatter(spacex_df, x="Payload Mass (kg)", y="class", 
+        fig = px.scatter(spacex_df[mask], x="Payload Mass (kg)", y="class", 
         color="Booster Version Category")
         return fig
     else:
